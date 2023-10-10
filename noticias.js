@@ -1,7 +1,18 @@
-var http = require('http')
+var http = require('http');
 
-http.ceateServer (function (req, res){
+var server = http.createServer (function (req, res){
 
-    res.send("<html><body>Portal de Noticias em Note JS</body></html>")
+    var categoria = req.url;
+
+    if (categoria == '/tecnologia'){
+        res.end("<html><body>Portal de Noticias de tecnologia JS</body></html>")
+    }
+    else if (categoria == '/moda'){
+        res.end("<html><body>Portal de Noticias de Moda JS</body></html>")
+    }
+    else{
+        res.end("<html><body>Portal de Noticias</body></html>")
+    }
 } )
 
+server.listen(3000);
